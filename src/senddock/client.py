@@ -6,6 +6,7 @@ import email.utils
 import http.client
 import json
 import math
+import socket
 import time
 import urllib.error
 import urllib.parse
@@ -168,9 +169,10 @@ def _build_http_error(status: int, raw_body: bytes) -> SendDockError:
 
 
 def _is_timeout_exception(cause: BaseException) -> bool:
-    if isinstance(cause, TimeoutError):
+    timeout_types = (TimeoutError, socket.timeout)
+    if isinstance(cause, timeout_types):
         return True
-    if isinstance(cause, urllib.error.URLError) and isinstance(cause.reason, TimeoutError):
+    if isinstance(cause, urllib.error.URLError) and isinstance(cause.reason, timeout_types):
         return True
     return type(cause).__name__ in {"ReadTimeout", "ConnectTimeout", "PoolTimeout", "TimeoutException"}
 
