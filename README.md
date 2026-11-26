@@ -157,6 +157,10 @@ except SendDockError as err:
 
 The client retries `429` (honoring `Retry-After`, capped at `60s`) and `500`/`502`/`503`/`504` responses plus transient network errors with exponential backoff (`max_retries=2` by default, `timeout=30.0` seconds). Set `max_retries=0` to disable retries.
 
+## Need a Custom Python/TypeScript SDK or Webhook Integration?
+
+Built by **Khoa Phan** ([khoaphan.dev/services](https://khoaphan.dev/services/?ref=gh-senddock-py) • [0%-Fee Escrow on Contra (\$120)](https://contra.com/s/W6QZAcEB-python-sdk-playwright-scraper-or-fast-api-webhook-integration)).
+
 ## License
 
-MIT — built by [Khoa Phan](https://khoaphan.dev).
+MIT — built by [Khoa Phan](https://khoaphan.dev/?ref=gh-senddock-py).
