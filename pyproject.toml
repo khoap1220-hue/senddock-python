@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
 authors = [
-    { name = "Khoa Phan", url = "https://khoaphan.dev" },
+    { name = "Khoa Phan", email = "khoa@khoaphan.dev" },
 ]
 keywords = [
     "senddock",
@@ -49,6 +49,7 @@ dev = [
 [project.urls]
 Homepage = "https://docs.senddock.dev/api/authentication"
 Repository = "https://github.com/khoap1220-hue/senddock-python"
+Author = "https://khoaphan.dev"
 Issues = "https://github.com/SendDock/senddock/issues/102"
 
 [tool.setuptools.packages.find]
