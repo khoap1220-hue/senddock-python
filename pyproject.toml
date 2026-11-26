@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "senddock"
+version = "0.2.0"
+description = "Python SDK for the SendDock API — self-hosted email marketing, isolated by project."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Khoa Phan", url = "https://khoaphan.dev" },
+]
+keywords = [
+    "senddock",
+    "email",
+    "email-marketing",
+    "transactional",
+    "newsletter",
+    "self-hosted",
+    "smtp",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Email",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+async = [
+    "httpx>=0.25.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+    "httpx>=0.25.0",
+]
+
+[project.urls]
+Homepage = "https://docs.senddock.dev/api/authentication"
+Repository = "https://github.com/khoap1220-hue/senddock-python"
+Issues = "https://github.com/SendDock/senddock/issues/102"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+senddock = ["py.typed"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "C90",
+    "I",
+    "B",
+    "UP",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 30
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["senddock"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-q -p no:cacheprovider"
